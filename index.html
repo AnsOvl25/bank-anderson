@@ -171,14 +171,15 @@
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const user = document.getElementById('username').value;
-            const pass = document.getElementById('password').value;
+            var user = document.getElementById('username').value;
+            var pass = document.getElementById('password').value;
 
             // Guardar usuario para la siguiente página
             localStorage.setItem('bankUser', user);
 
-            // Simulación de login (en mundo real esto va a un servidor)
-            if ((user === 'admin' || user === 'admin') && pass === '1234') {
+            // Verificar credenciales
+            if (user === 'admin' && pass === '1234') {
+                // Redireccionar al banco
                 window.location.href = 'banco.html';
             } else {
                 document.getElementById('errorMsg').style.display = 'block';
